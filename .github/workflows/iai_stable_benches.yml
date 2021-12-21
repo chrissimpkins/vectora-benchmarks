@@ -36,3 +36,18 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: bench
+  dev-branch-version:
+    name: (dev) iai stable toolchain benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - run: sudo apt install -y valgrind
+      - run: mv Cargo.toml.dev Cargo.toml
+      - name: run stable benchmarks
+        uses: actions-rs/cargo@v1
+        with:
+          command: bench
