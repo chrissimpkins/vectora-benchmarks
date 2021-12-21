@@ -7,8 +7,8 @@ on:
 name: iai beta toolchain benchmarks
 
 jobs:
-  fmt:
-    name: iai beta toolchain benchmarks
+  release-version:
+    name: (release) iai beta toolchain benchmarks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +17,21 @@ jobs:
           toolchain: beta
           override: true
       - run: sudo apt install -y valgrind
+      - name: run beta benchmarks
+        uses: actions-rs/cargo@v1
+        with:
+          command: bench
+  main-branch-version:
+    name: (main) iai beta toolchain benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: beta
+          override: true
+      - run: sudo apt install -y valgrind
+      - run: mv Cargo.toml.main Cargo.toml
       - name: run beta benchmarks
         uses: actions-rs/cargo@v1
         with:

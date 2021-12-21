@@ -7,8 +7,8 @@ on:
 name: iai nightly toolchain benchmarks
 
 jobs:
-  fmt:
-    name: iai nightly toolchain benchmarks
+  release-version:
+    name: (release) iai nightly toolchain benchmarks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +17,21 @@ jobs:
           toolchain: nightly
           override: true
       - run: sudo apt install -y valgrind
+      - name: run nightly benchmarks
+        uses: actions-rs/cargo@v1
+        with:
+          command: bench
+  main-branch-version:
+    name: (main) iai nightly toolchain benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          override: true
+      - run: sudo apt install -y valgrind
+      - run: mv Cargo.toml.main Cargo.toml
       - name: run nightly benchmarks
         uses: actions-rs/cargo@v1
         with:
