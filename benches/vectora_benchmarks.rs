@@ -1,3 +1,4 @@
+#![allow(unused_imports)]
 use iai::{black_box, main};
 
 use vectora::Vector;

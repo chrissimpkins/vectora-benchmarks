@@ -17,6 +17,7 @@ jobs:
           toolchain: nightly
           override: true
       - run: sudo apt install -y valgrind
-      - uses: actions-rs/cargo@v1
+      - name: run nightly benchmarks
+        uses: actions-rs/cargo@v1
         with:
           command: bench
