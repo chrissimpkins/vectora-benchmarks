@@ -13,7 +13,7 @@ exclude = [
 ]
 
 [dependencies]
-vectora = "0.7"
+vectora = "0.8"
 
 
 [dev-dependencies]
