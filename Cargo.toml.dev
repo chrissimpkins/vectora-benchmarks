@@ -17,7 +17,7 @@ vectora = { git = "https://github.com/chrissimpkins/vectora", branch = "dev" }
 
 
 [dev-dependencies]
-iai = "0.1"
+criterion = "0.6"
 
 
 [[bench]]
