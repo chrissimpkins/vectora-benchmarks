@@ -4,11 +4,11 @@ on:
   push:
   pull_request:
 
-name: iai beta toolchain benchmarks
+name: Criterion beta toolchain benchmarks
 
 jobs:
   release-version:
-    name: (release) iai beta toolchain benchmarks
+    name: (release) criterion beta toolchain benchmarks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
         with:
           command: bench
   main-branch-version:
-    name: (main) iai beta toolchain benchmarks
+    name: (main) criterion beta toolchain benchmarks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
         with:
           command: bench
   dev-branch-version:
-    name: (dev) iai beta toolchain benchmarks
+    name: (dev) criterion beta toolchain benchmarks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
