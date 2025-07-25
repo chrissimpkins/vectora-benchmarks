@@ -17,7 +17,7 @@ vectora = "0.8"
 
 
 [dev-dependencies]
-criterion = "0.6"
+criterion = "0.7"
 
 
 [[bench]]
